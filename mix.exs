@@ -29,8 +29,8 @@ defmodule Phauxth.Mixfile do
 
   defp deps do
     [
-      {:plug, "~> 1.11"},
-      {:argon2_elixir, "~> 2.4", optional: true},
+      {:plug, "~> 1.16"},
+      {:argon2_elixir, "~> 4.0", optional: true},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0.0", only: :dev, runtime: false}
     ]

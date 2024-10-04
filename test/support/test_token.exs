@@ -67,7 +67,7 @@ defmodule Phauxth.PhoenixToken do
 
     case MessageVerifier.verify(token, secret) do
       {:ok, message} ->
-        %{data: data, signed: signed} = Plug.Crypto.safe_binary_to_term(message)
+        %{data: data, signed: signed} = Plug.Crypto.non_executable_binary_to_term(message, [:safe])
 
         if expired?(signed, opts[:max_age]) do
           {:error, :expired}

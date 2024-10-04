@@ -30,7 +30,7 @@ defmodule Phauxth.Confirm.PassResetTest do
              valid_key = TestToken.sign(%{"email" => "brian@example.com"}, [])
              params = %{"key" => valid_key, "password" => "password"}
              {:error, "Invalid credentials"} = PassReset.verify(params)
-           end) =~ ~s([warn]  user=nil message="unconfirmed user attempting to reset password")
+           end) =~ ~s([warning] user=nil message="unconfirmed user attempting to reset password")
   end
 
   test "reset fails when reset_sent_at is not found" do
@@ -38,7 +38,7 @@ defmodule Phauxth.Confirm.PassResetTest do
              valid_key = TestToken.sign(%{"email" => "igor@example.com"}, [])
              params = %{"key" => valid_key, "password" => "password"}
              {:error, "Invalid token"} = PassReset.verify(params)
-           end) =~ ~s([warn]  user=nil message="no reset token found")
+           end) =~ ~s([warning] user=nil message="no reset token found")
   end
 
   test "get_user/2 can be overridden for pass_reset", %{valid_email: valid_email} do
