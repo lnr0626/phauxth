@@ -36,7 +36,7 @@ defmodule Phauxth.Log do
 
   defstruct user: "nil", message: "", meta: []
 
-  for level <- [:debug, :info, :warn, :error] do
+  for level <- [:debug, :info, :warn, :warning, :error] do
     @doc """
     Returns the #{level} log message.
     """

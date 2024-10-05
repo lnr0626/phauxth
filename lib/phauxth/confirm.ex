@@ -25,7 +25,7 @@ defmodule Phauxth.Confirm do
   @impl true
   def report({:ok, user}, meta) do
     if user.confirmed_at do
-      Log.warn(%Log{user: user.id, message: "user already confirmed", meta: meta})
+      Log.warning(%Log{user: user.id, message: "user already confirmed", meta: meta})
       {:error, Config.user_messages().already_confirmed()}
     else
       super({:ok, user}, meta)

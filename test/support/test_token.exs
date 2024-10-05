@@ -120,7 +120,7 @@ defmodule Phauxth.PhoenixToken do
 
   defp expired?(_signed, nil) do
     # TODO v2: Default to 86400 on future releases.
-    Logger.warn(
+    Logger.warning(
       ":max_age was not set on Phoenix.Token.verify/4. " <>
         "A max_age is recommended otherwise tokens are forever valid. " <>
         "Please set it to the amount of seconds the token is valid, " <>
